@@ -12,6 +12,8 @@
 - open http://localhost:8080 on your local machine
 
 # How it works
-- please visit the `/languages` endpoint
-- this will run a `.map()` loop that looks at files in the public directory and attempts to upload them to Filestack.
-- The problematic files are:
+- please visit the `/` endpoint to make sure the server is working properly.
+- then, please visit the `/languages` endpoint to see the proposed file uploads.
+- then, please visit the `/languages/upload?fileName=go.webp` endpoint to see everything work as expected
+- then, please visit the `/languages/batch-upload-slow` endpoint to see the app crash when it gets to the `kotlin.webp` file.
+
