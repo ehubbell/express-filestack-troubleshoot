@@ -1,0 +1,15 @@
+{
+  "ignore": [
+      "db/app/schema.js",
+      "db/carbon/schema.js",
+      "db/ingram/schema.js",
+      "db/spex/schema.js"
+  ],
+  "watch": [
+      "db/",
+      "src/",
+      "package.json",
+      ".env"
+  ],
+  "ext": "js,ts,json"
+}
