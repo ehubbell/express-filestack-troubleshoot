@@ -4,7 +4,7 @@ import Superagent from 'superagent';
 class FilestackService {
 	// Computes
 	static get client() {
-		return Filestack.init(process.env.FILESTACK_API_KEY);
+		return Filestack.init(process.env.FILESTACK_API_KEY as string);
 	}
 
 	// Tasks
