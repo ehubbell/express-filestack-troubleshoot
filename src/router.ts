@@ -22,6 +22,8 @@ const Router = app => {
 	// Routes
 	app.get('/', AppController.index);
 	app.get('/languages', LanguageController.index);
+	app.get('/languages/upload', LanguageController.upload);
+	app.get('/languages/batchUpload', LanguageController.batchUpload);
 
 	// Errors
 	app.use(function (error, req, res, next) {
