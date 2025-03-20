@@ -37,6 +37,22 @@ class LanguageController {
 			next(e);
 		}
 	}
+
+	static async batchUploadSlow(req, res, next) {
+		try {
+			const base = path.join(path.resolve(), 'public', 'languages');
+			const files = await Fs.promises.readdir(base);
+			console.log('files: ', files);
+			const uploads: string[] = [];
+			for await (const file of files) {
+				const upload = await FilestackService.upload(path.join(base, file));
+				uploads.push(upload);
+			}
+			res.json({ status: 200, data: uploads });
+		} catch (e) {
+			next(e);
+		}
+	}
 }
 
 export { LanguageController };

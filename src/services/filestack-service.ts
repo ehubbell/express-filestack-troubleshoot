@@ -10,7 +10,7 @@ class FilestackService {
 	// Tasks
 	static async upload(filePath) {
 		const upload = await this.client.upload(filePath);
-		console.log('filestack upload: ', upload.url);
+		console.log('filestack upload: ', { filePath, url: upload.url });
 		return upload.url;
 	}
 
