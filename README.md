@@ -4,60 +4,14 @@
 # Requirements
 - Node
 - NPM
-- Docker
-- Mutagen
-- Cert files
-- Env file
+- Env File
 
 # Quick start
-- mutagen-compose up
-- mutagen-compose up --build
+- npm install
+- npm start
+- open http://localhost:8080 on your local machine
 
-# Features
-- Docker
-- Mutagen
-- Lint
-- Prettier
-- Husky
-- Express
-- Typescript
-- Jest
-- License
-- Readme
-
-# Author
-- Eric Hubbell
-- [https://www.erichubbell.com](erichubbell.com)
-
-# Notes
-
-
-#### Troubleshooting
-- npm install inside container
-
-
-#### Certs
-- brew install mkcert
-- mkdir certs
-- cd certs
-- mkcert www.project.local localhost
-- add www.project.local to your host file
-- Update env file with path to cert
-
-
-#### Docker
-
-
-
-#### Docker compose
-- docker-compose up
-- docker-compose up -- build
-- docker-compose build --no-cache
-- docker-compose run service_name bash
-- docker-compose images
-- docker-compose ps
-- docker-compose rm
-
-
-#### Docker container
-- docker container exec -it docker_container_name bash
+# How it works
+- please visit the `/languages` endpoint
+- this will run a `.map()` loop that looks at files in the public directory and attempts to upload them to Filestack.
+- The problematic files are:

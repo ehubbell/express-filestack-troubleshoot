@@ -15,8 +15,10 @@ dist-ssr
 # Configs
 .pnpm-*
 
+# Env
+.env
+
 # Editor directories and files
-.vscode/*
 .idea
 .DS_Store
 *.suo

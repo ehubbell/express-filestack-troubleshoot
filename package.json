@@ -5,11 +5,11 @@
   "scripts": {
     "start": "nodemon --exec 'ts-node src/index.ts'",
     "start:inspect": "nodemon --exec node -r ts-node/register --inspect=0.0.0.0:9229 src/index.ts",
+    "console": "node -r ts-node/register --experimental-repl-await console.ts",
+    "console:inspect": "node -r ts-node/register --inspect=0.0.0.0:9339 --experimental-repl-await console.ts",
     "build": "tsc --project tsconfig.json",
     "serve": "TS_NODE_BASEURL=dist node -r tsconfig-paths/register dist/src/index.js",
     "clean": "npm run lint:fix",
-    "console": "node -r ts-node/register --experimental-repl-await console.ts",
-    "console:inspect": "node -r ts-node/register --inspect=0.0.0.0:9339 --experimental-repl-await console.ts",
     "format": "prettier --check src",
     "format:fix": "prettier --write src",
     "lint": "eslint src",
@@ -45,6 +45,9 @@
   },
   "dependencies": {
     "express": "^4.18.2",
+    "filestack-js": "^3.38.5",
+    "fs-extra": "^11.3.0",
+    "superagent": "^10.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.3"
   }

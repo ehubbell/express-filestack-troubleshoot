@@ -1,0 +1,31 @@
+{
+  "autorun": false,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "express-ts-starter",
+      "focus": true,
+      "execute": false,
+      "command": "npm start",
+      "recycle": true
+    },
+    {
+      "name": "express-ts-starter-alt",
+      "execute": false,
+      "command": "",
+      "recycle": true
+    },
+    {
+      "name": "express-ts-starter-console",
+      "execute": false,
+      "command": "npm run console",
+      "recycle": true
+    },
+    {
+      "name": "zsh",
+      "open": true,
+      "recycle": true
+    }
+  ]
+}
+
