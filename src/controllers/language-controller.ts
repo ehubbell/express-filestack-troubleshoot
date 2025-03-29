@@ -15,11 +15,14 @@ class LanguageController {
 		}
 	}
 
+	// This endpoint demonstrates buffer doesn't work on certain files (eg: /languages/upload/kotlin)
 	static async upload(req, res, next) {
 		try {
 			const base = path.join(path.resolve(), 'public', 'languages');
 			if (!req.query.fileName) throw httpError(422, 'Please include a valid file name.');
-			const upload = await FilestackService.upload(path.join(base, req.query.fileName));
+			const formattedPath = path.join(base, req.query.fileName, '.webp');
+			const contents = await Fs.promises.readFile(formattedPath);
+			const upload = await FilestackService.upload(contents);
 			res.json({ status: 200, data: upload });
 		} catch (e) {
 			next(e);
