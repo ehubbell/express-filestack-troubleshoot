@@ -4,14 +4,20 @@ import Superagent from 'superagent';
 class FilestackService {
 	// Computes
 	static get client() {
-		return Filestack.init(process.env.FILESTACK_API_KEY as string);
+		const client = Filestack.init(process.env.FILESTACK_API_KEY as string);
+		client.on('upload.error', error => console.error('client error: ', error));
+		return client;
 	}
 
-	// Tasks
-	static async upload(filePath) {
-		const upload = await this.client.upload(filePath);
-		console.log('filestack upload: ', { filePath, url: upload.url });
-		return upload.url;
+	// Methods
+	static async upload(file) {
+		try {
+			const upload = await this.client.upload(file);
+			console.log('filestack upload: ', { file, url: upload.url });
+			return upload.url;
+		} catch (e) {
+			console.error('upload error: ', e);
+		}
 	}
 
 	static async uploadUrl(url) {

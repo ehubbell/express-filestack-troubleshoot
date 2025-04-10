@@ -1,5 +1,4 @@
 import Fs from 'fs-extra';
-import httpError from 'http-errors';
 import path from 'node:path';
 import { FilestackService } from 'src/services/filestack-service';
 
@@ -15,12 +14,10 @@ class LanguageController {
 		}
 	}
 
-	// This endpoint demonstrates buffer doesn't work on certain files (eg: /languages/upload/kotlin)
 	static async upload(req, res, next) {
 		try {
 			const base = path.join(path.resolve(), 'public', 'languages');
-			if (!req.query.fileName) throw httpError(422, 'Please include a valid file name.');
-			const formattedPath = path.join(base, req.query.fileName, '.webp');
+			const formattedPath = path.join(base, `${req.params.languageId}.webp`);
 			const contents = await Fs.promises.readFile(formattedPath);
 			const upload = await FilestackService.upload(contents);
 			res.json({ status: 200, data: upload });

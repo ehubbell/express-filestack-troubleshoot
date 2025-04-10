@@ -22,7 +22,7 @@ const Router = app => {
 	// Routes
 	app.get('/', AppController.index);
 	app.get('/languages', LanguageController.index);
-	app.get('/languages/upload', LanguageController.upload);
+	app.get('/languages/upload/:languageId', LanguageController.upload);
 	app.get('/languages/batch-upload', LanguageController.batchUpload);
 	app.get('/languages/batch-upload-slow', LanguageController.batchUploadSlow);
 
